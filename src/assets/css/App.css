@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+.formregister{
+  position: relative;
+  width: 150%;
+  max-width: 130%;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
+  font-size: 80%;
+  left: 300px;
+  justify-content: center;
+}
+
+.formregister .fecha{
+  position: relative;
+  left: 140px;
+}
+.registerform{
+  width: 100%;
+  max-width: 450px;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
+  font-size: 80%;
+}
+.employe{
+  width: 100%;
+  max-width: 1300px;
+  font-size: 70%;
+
+}

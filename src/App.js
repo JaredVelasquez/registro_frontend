@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Row, Col} from 'react-bootstrap';
+import './assets/css/App.css';
+import Formulario from './components/Formulario';
+import TablaEmpleados from './components/TablaEmpleados';
+import React, {useState} from 'react';
+import {FormContext} from './context/FormContext';
 
 function App() {
+    const [datos,  setDatos] = useState({
+      codigo: '',
+      nombre: '',
+      fechaNacimiento: new Date(),
+      estadoCivil: '',
+      estado: ''
+  })
+  
+  const handleChange = ({ target }) => {
+    setDatos({
+      ...datos,
+      [target.name]: target.value,
+    });
+  };
+  console.log(datos);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Col>
+          <FormContext.Provider value={{datos,setDatos,handleChange}}>
+
+              <Row>
+                <Formulario/>
+              </Row>
+              <Row>
+                <TablaEmpleados/>
+
+              </Row>
+            </FormContext.Provider>
+        </Col>
+          
+
       </header>
+      
     </div>
   );
 }
